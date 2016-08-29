@@ -2,10 +2,8 @@ FROM bilxio/node:0.10-dev
 
 MAINTAINER haibxz@gmail.com
 
-ENV NODE_VERSION=0.10.46 MAVEN_VERSION=$MAVEN_VERSION
-
 # Install Coffee
-RUN npm install -g coffee-scrip
+RUN npm install -g coffee-script
 
 # echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc && \
 # echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.zshrc
