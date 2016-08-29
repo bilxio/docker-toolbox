@@ -11,3 +11,7 @@ Linux development env with more tools.
 - ZSH
 - WRK
 - Python
+- ansible
+- tmux
+- vim
+- git
