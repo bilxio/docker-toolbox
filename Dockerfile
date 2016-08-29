@@ -4,10 +4,8 @@ MAINTAINER haibxz@gmail.com
 
 ENV NODE_VERSION=0.10.46 MAVEN_VERSION=$MAVEN_VERSION
 
-# Install Coffee, pm2
-RUN npm install -g coffee-script pm2 \
-    bower coffeelint brunch gulp browserify jshint jsonlint nodemon \
-    bunyan semver jasmine-node mocha
+# Install Coffee
+RUN npm install -g coffee-scrip
 
 # echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc && \
 # echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.zshrc
@@ -17,7 +15,7 @@ RUN apt-get install software-properties-common && \
     apt-add-repository ppa:ansible/ansible && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && \
-    apt-get install -y zsh tmux vim git curl
+    apt-get install -y zsh tmux vim git curl \
     vim vim-runtime htop iotop iptraf iftop ansible python-pip python-dev \
     telnet sysstat nginx php5-common php5-mysql php5-xmlrpc php5-cgi php5-curl \
     php5-gd php5-cli php5-fpm php-apc php-pear php5-dev php5-imap php5-mcrypt tree golang \
