@@ -5,19 +5,21 @@ MAINTAINER haibxz@gmail.com
 # Install Coffee
 RUN npm install -g coffee-script
 
-# echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc && \
-# echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.zshrc
+RUN apt-get install python-software-properties -y
 
 # Install packages
-RUN apt-get install software-properties-common && \
-    apt-add-repository ppa:ansible/ansible && \
-    apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && \
-    apt-get install -y zsh tmux vim git curl \
-    vim vim-runtime htop iotop iptraf iftop ansible python-pip python-dev \
-    telnet sysstat nginx php5-common php5-mysql php5-xmlrpc php5-cgi php5-curl \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y && \
+    apt-add-repository -y ppa:ansible/ansible && \
+    add-apt-repository -y ppa:nginx/stable && \
+    add-apt-repository -y ppa:rwky/redis
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y zsh tmux vim git curl \
+    vim vim-runtime htop iotop iptraf iftop python-pip python-dev \
+    telnet sysstat php5-common php5-mysql php5-xmlrpc php5-cgi php5-curl \
     php5-gd php5-cli php5-fpm php-apc php-pear php5-dev php5-imap php5-mcrypt tree golang \
-    mysql-client redis-tools ansible libssl-dev
+    mysql-client libssl-dev
 
 # VIM & ZSH
 RUN locale-gen en_US.UTF-8
@@ -41,6 +43,9 @@ ADD vimrc /root/.vimrc
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 RUN chsh -s /usr/bin/zsh
 ADD zshrc /root/.zshrc
+
+# echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc && \
+# echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.zshrc
 
 # Python
 RUN pip install pymongo elasticsearch redis
