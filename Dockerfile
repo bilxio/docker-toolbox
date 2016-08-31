@@ -11,7 +11,10 @@ RUN apt-get install python-software-properties -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y && \
     apt-add-repository -y ppa:ansible/ansible && \
     add-apt-repository -y ppa:nginx/stable && \
-    add-apt-repository -y ppa:rwky/redis && \
+    add-apt-repository -y ppa:rwky/redis
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y zsh tmux vim git curl \
