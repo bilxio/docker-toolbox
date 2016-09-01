@@ -5,8 +5,6 @@ MAINTAINER haibxz@gmail.com
 # Install Coffee
 RUN npm install -g coffee-script
 
-RUN apt-get install python-software-properties -y
-
 # Install packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y && \
     apt-add-repository -y ppa:ansible/ansible && \

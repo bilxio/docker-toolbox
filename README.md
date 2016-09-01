@@ -3,6 +3,7 @@
 build
 ```
 docker build -t bilxio/toolbox:0.10 .
+docker build -t bilxio/toolbox:0.10-trusty .
 ```
 
 push
