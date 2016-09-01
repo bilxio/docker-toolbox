@@ -5,10 +5,20 @@ build
 docker build -t bilxio/toolbox:0.10 .
 ```
 
+push
+```
+docker push bilxio/toolbox:0.10
+```
+
 run
 ```
-docker run -d --name toolbox -p 10022:22 \
-  bilxio/toolbox:0.10
+docker run -d --name toolbox -p 10022:22 -p 10080 bilxio/toolbox:0.10
+```
+
+test
+```
+docker run --rm bilxio/toolbox:0.10 which ansible
+docker run --rm bilxio/toolbox:0.10 which nginx
 ```
 
 Linux development env with more tools.

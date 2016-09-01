@@ -14,18 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y
     add-apt-repository -y ppa:rwky/redis
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server
-
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y tmux git \
-    htop iotop iptraf iftop python-pip python-dev \
-    telnet sysstat php5-common php5-mysql php5-xmlrpc php5-cgi php5-curl \
-    php5-gd php5-cli php5-fpm php-apc php-pear php5-dev php5-imap php5-mcrypt tree golang \
-    mysql-client libssl-dev
-
-# PHP
-RUN sed -ri 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php5/fpm/php.ini
-RUN sed -ri 's/display_errors = Off/display_errors = On/g' /etc/php5/fpm/php.ini
+    DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server git mysql-client libssl-dev
 
 # Nginx
 ADD default_vhost /etc/nginx/sites-available/default
