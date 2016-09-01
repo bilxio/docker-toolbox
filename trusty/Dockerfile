@@ -5,8 +5,12 @@ MAINTAINER haibxz@gmail.com
 # Install Coffee
 RUN npm install -g coffee-script
 
+# use linode Tokoyo mirror
+COPY ./sources.list /etc/apt/sources.list
+
 # Install packages
-RUN DEBIAN_FRONTEND=noninteractive apt-get install software-properties-common -y && \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install software-properties-common -y && \
     add-apt-repository -y ppa:ansible/ansible && \
     add-apt-repository -y ppa:nginx/stable && \
     add-apt-repository -y ppa:rwky/redis
