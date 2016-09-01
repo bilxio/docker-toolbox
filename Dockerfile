@@ -63,11 +63,12 @@ RUN sed -ri 's/worker_processes 4;/worker_processes 1;/g' /etc/nginx/nginx.conf
 # cleanup
 RUN rm -rf /tmp/* /var/lib/apt/lists/*
 
+RUN service start nginx
+RUN chkconfig service nginx on
+
 VOLUME ["/srv", "/data", "/tmp", "/var/www"]
 WORKDIR /data
 
 ENV PATH node_modules/.bin:$PATH
-
-CMD ["zsh"]
 
 EXPOSE 22 80 8000 7000 7001 7002 7004
