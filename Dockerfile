@@ -14,10 +14,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y
     add-apt-repository -y ppa:rwky/redis
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tmux git \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y tmux git \
     htop iotop iptraf iftop python-pip python-dev \
     telnet sysstat php5-common php5-mysql php5-xmlrpc php5-cgi php5-curl \
     php5-gd php5-cli php5-fpm php-apc php-pear php5-dev php5-imap php5-mcrypt tree golang \
