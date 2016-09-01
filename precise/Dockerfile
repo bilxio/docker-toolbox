@@ -7,9 +7,9 @@ RUN npm install -g coffee-script
 
 # Install packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y && \
-    add-apt-repository -y ppa:ansible/ansible && \
-    add-apt-repository -y ppa:nginx/stable && \
-    add-apt-repository -y ppa:rwky/redis
+    apt-add-repository -y ppa:ansible/ansible && \
+    apt-add-repository -y ppa:nginx/stable && \
+    apt-add-repository -y ppa:rwky/redis
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server git mysql-client libssl-dev
