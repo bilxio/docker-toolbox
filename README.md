@@ -37,3 +37,8 @@ Linux development env with more tools.
 - tmux
 - vim
 - git
+
+### add-apt-repo
+
+- ubuntu-precise  `apt-get install python-software-properties`
+- ubuntu-trusty  `apt-get install software-properties-common`

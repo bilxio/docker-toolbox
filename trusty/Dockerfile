@@ -6,7 +6,7 @@ MAINTAINER haibxz@gmail.com
 RUN npm install -g coffee-script
 
 # Install packages
-RUN DEBIAN_FRONTEND=noninteractive apt-get install python-software-properties -y && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install software-properties-common -y && \
     apt-add-repository -y ppa:ansible/ansible && \
     apt-add-repository -y ppa:nginx/stable && \
     apt-add-repository -y ppa:rwky/redis
