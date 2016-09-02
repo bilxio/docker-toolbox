@@ -16,7 +16,8 @@ RUN apt-get update && \
     add-apt-repository -y ppa:rwky/redis
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible redis-server git mysql-client libssl-dev
+    DEBIAN_FRONTEND=noninteractive apt-get install -y nginx ansible && \
+    build-essential tmux vim redis-server git mysql-client libssl-dev
 
 # Nginx
 ADD default_vhost /etc/nginx/sites-available/default

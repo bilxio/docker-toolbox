@@ -9,11 +9,13 @@ docker build -t bilxio/toolbox:0.10-trusty .
 push
 ```
 docker push bilxio/toolbox:0.10
+docker push bilxio/toolbox:0.10-trusty
 ```
 
 run
 ```
-docker run -d --name toolbox -p 10022:22 -p 10080 bilxio/toolbox:0.10
+docker run -d --name toolbox -p 10022:22 -p 10080:80 bilxio/toolbox:0.10
+docker run -d --name toolbox -p 10022:22 -p 10080:80 bilxio/toolbox:0.10-trusty
 ```
 
 test
